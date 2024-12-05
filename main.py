@@ -26,22 +26,17 @@ df = pd.DataFrame(data)
 print(df.head())
 
 #подсчет средних оценок по каждому предмету:
-print(f"Средняя оценка по математике - {df['math'].mean()}")
-print(f"Средняя оценка по химии - {df['chemistry'].mean()}")
-print(f"Средняя оценка по физике - {df['physics'].mean()}")
-print(f"Средняя оценка по литературе - {df['literature'].mean()}")
-print(f"Средняя оценка по истории - {df['history'].mean()}")
-print()
+average_scores = df.mean(numeric_only=True)
+print("\nСредняя оценка по каждому предмету:")
+print(average_scores)
 
 #подсчет медианных оценок по каждому предмету:
-print(f"Медианная оценка по математике - {df['math'].median()}")
-print(f"Медианная оценка по химии - {df['chemistry'].median()}")
-print(f"Медианная оценка по физике - {df['physics'].median()}")
-print(f"Медианная оценка по литературе - {df['literature'].median()}")
-print(f"Медианная оценка по истории - {df['history'].median()}")
+median_scores = df.median(numeric_only=True)
+print("\nМедианная оценка по каждому предмету:")
+print(median_scores)
 print()
 
-#вычисление Q1 и Q3 и IQR для оценок по математике:
+#вычисление Q1, Q3 и IQR для оценок по математике:
 Q1_math = df['math'].quantile(0.25)
 Q3_math = df["math"].quantile(0.75)
 IQR_math = Q3_math - Q1_math
@@ -51,8 +46,6 @@ print(f"IQR для оценок по математике - {IQR_math}")
 print()
 
 #вычисление стандартного отклонения для оценок по предметам:
-print(f"Стандартное откл-е для оценок по математике - {df['math'].std()}")
-print(f"Стандартное откл-е для оценок по химии - {df['chemistry'].std()}")
-print(f"Стандартное откл-е для оценок по физике - {df['physics'].std()}")
-print(f"Стандартное откл-е для оценок по литературе - {df['literature'].std()}")
-print(f"Стандартное откл-е для оценок по истории - {df['history'].std()}")
+std_deviation = df.std(numeric_only=True)
+print("\nСтандартное отклонение по каждому предмету:")
+print(std_deviation)
